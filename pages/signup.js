@@ -23,7 +23,7 @@ export default function SignupPage() {
         <div class="container mt-2 mb-2">
             <div class="row">
                 <div class="col-md-12 nav-link text-white">
-                    <a href="index.html"><i class="fa fa-arrow-left mr-3" /></a>
+                <a href="Sidebar"><i class="fa fa-arrow-left mr-3" /></a>
                     Sign Up
                 </div>
             </div>
