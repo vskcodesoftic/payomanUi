@@ -2,6 +2,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
+import { useSession  , signOut} from 'next-auth/client'
+
 import Link from 'next/link'
 
 export default function SideBarPage() {
@@ -15,7 +17,11 @@ export default function SideBarPage() {
             document.getElementById("mySidebar").style.width = "100%";
             document.getElementById("main").style.marginLeft = "250px";
           }
-          
+          const logOutHandler = async () => {
+            signOut();
+         }
+    
+         const [session , loading ] = useSession()    
        
   return (
     <div >
@@ -78,9 +84,11 @@ export default function SideBarPage() {
                       <li class="nav-item mt-3">
                       <Link href="/Support"><a class="nav-link" ><i class="fas fa-headphones mr-3"></i> Support <i class="fa fa-chevron-right float-right"></i></a></Link>
                     </li> 
+                    {session && (
                     <li class="nav-item mt-3">
-                    <Link href="/"><a class="nav-link" href="#"><i class="fas fa-user mr-3"></i> Logout  <i class="fa fa-chevron-right float-right"></i></a></Link>
+                    <Link href="/"><a class="nav-link"onClick={logOutHandler}><i class="fas fa-user mr-3"></i> Logout  <i class="fa fa-chevron-right float-right"></i></a></Link>
                     </li> 
+                    )}
                     <li class="nav-item mt-3">
                         <hr class="float-left" />
                         <p class="text-center">@Copyright PayOman , Design And Develeope By <span >Codesoftic Tech PVT LTD.</span></p>

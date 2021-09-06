@@ -1,11 +1,10 @@
-import Head from 'next/head'
-import Auth from '../components/auth/auth'
 import { useRouter } from 'next/router'
 import { getSession } from 'next-auth/client';
 import { useEffect , useState} from 'react';
 
+import Auth from '../components/auth/auth'
 
-export default function Home() {
+function AuthPage() {
   const [isLoading, setisLoading] = useState(true)
   const router = useRouter()
   useEffect(() => {
@@ -21,7 +20,8 @@ export default function Home() {
   if(isLoading) {
     return <p>Loading...</p>
   }
-  return (
-    <Auth />
- )
+
+  return <Auth />;
 }
+
+export default AuthPage;
