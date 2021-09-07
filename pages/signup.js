@@ -159,7 +159,7 @@ function signupPage() {
                 </label>
               </div>
                <div className="form-group">
-                   <button  className="form-control"  > Submit </button>
+                   <button  className="form-control success-btn"  > Submit </button>
                </div>
             </form>
           </div>
