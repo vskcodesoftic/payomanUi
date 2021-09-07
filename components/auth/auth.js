@@ -6,6 +6,9 @@ import { useRouter } from 'next/router'
 import { signIn } from 'next-auth/client';
 
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const AuthForm = () => {
     const emailInputRef = useRef('')
     const passwordInputRef = useRef('')
@@ -30,11 +33,12 @@ const AuthForm = () => {
             password : entredPassword
           });
      
-     
+
           if(!result.error){
             router.replace('/dashboard');
           }
-     
+          toast.warn(`${result.error}`)
+
           console.log(result)
         
       }
@@ -65,6 +69,7 @@ const AuthForm = () => {
           </div>
       </div>
    </div> 
+   <ToastContainer />
    <div className="container forn-container " > 
        <form  className="form-sec p-3 mt-3" onSubmit={submitHandler}>
            <h4 className="text-center mb-4">SIGN IN</h4>
