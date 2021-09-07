@@ -9,7 +9,7 @@ async function handler(req, res) {
   
     const data = req.body;
   
-    const { email, password } = data;
+    const {fullname, businessname, countrycode, phonenumber, email, password } = data;
   
     if (
       !email ||
@@ -38,13 +38,24 @@ async function handler(req, res) {
   
     const hashedPassword = await hashPassword(password);
   
-    const result = await db.collection('users').insertOne({
-      email: email,
-      password: hashedPassword,
-    });
+
+     
+    try{
+      const result = await db.collection('users').insertOne({
+        fullname, 
+        businessname,
+        countrycode,
+         phonenumber,
+        email: email,
+        password: hashedPassword,
+      });
+      res.status(201).json({ message: 'Created user!' , user  : result});
+      client.close();
+    }catch(err){
+      console.log(err)
+    }
+
   
-    res.status(201).json({ message: 'Created user!' });
-    client.close();
   }
   
   export default handler;

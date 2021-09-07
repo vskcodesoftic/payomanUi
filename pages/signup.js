@@ -1,8 +1,86 @@
+import { useRef } from 'react';
+
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 
-export default function SignupPage() {
+import { useRouter } from 'next/router'
+
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+import { signIn } from 'next-auth/client';
+async function createUser(fullname, businessname, countrycode, phonenumber, email , password) {
+  const response = await fetch('/api/auth/signup', {
+    method: 'POST',
+    body: JSON.stringify({fullname, businessname, countrycode, phonenumber, email, password }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    toast.warn(`signup failed ${data.message}`);
+    throw new Error(data.message || 'Something went wrong!');
+  }
+
+  toast.success("signup sucessfull");
+
+  return data;
+}
+
+function signupPage() {
+  const emailInputRef = useRef('')
+  const passwordInputRef = useRef('')
+  const fullNameInputRef = useRef('')
+  const countrycodeInputRef = useRef('')
+  const phoneInputRef = useRef('')
+  const businessNameInputRef = useRef('')
+  const retypepasswordInputRef = useRef('')
+
+   const router = useRouter()
+
+
+  function switchAuthModeHandler() {
+    setIsLogin((prevState) => !prevState);
+  }
+
+ async function submitHandler(event){
+   event.preventDefault();
+
+  const enteredEmail = emailInputRef.current.value;
+  const entredPassword = passwordInputRef.current.value ;
+  const entredFullname = fullNameInputRef.current.value;
+  const entredPhoneNumber = phoneInputRef.current.value;
+  const enteredBusinessName = businessNameInputRef.current.value;
+  const enteredcuntryCode = countrycodeInputRef.current.value;
+  const entredretypepassword = retypepasswordInputRef.current.value;
+
+
+  if (entredPassword !== entredretypepassword) {
+
+    toast.warn("Passwords don't match");
+    return;
+  }
+
+  //optional  add validtion
+
+  
+     try {
+    const result = await  createUser(entredFullname,enteredBusinessName , enteredcuntryCode, entredPhoneNumber ,enteredEmail , entredPassword);
+    console.log(result)
+     }catch(err){
+      console.log(err)
+     }
+   
+ }
+
+
+
+
   return (
     <div >
       <Head>
@@ -19,29 +97,30 @@ export default function SignupPage() {
       </Head>
 
       <main>
-      <div class="nav">
-        <div class="container mt-2 mb-2">
-            <div class="row">
-                <div class="col-md-12 nav-link text-white">
-                <a href="Sidebar"><i class="fa fa-arrow-left mr-3" /></a>
+      <div className="nav">
+        <div className="container mt-2 mb-2">
+            <div className="row">
+                <div className="col-md-12 nav-link text-white">
+                <a href="Sidebar"><i className="fa fa-arrow-left mr-3" /></a>
                     Sign Up
                 </div>
             </div>
         </div>
     </div>
+    <ToastContainer />
 
-    <div class="container signup-container">
-       <div class="row">
-          <div class="col-md-12">
-            <form action="/action_page.php " class="mt-3">
-                <div class="form-group">
-                    <input type="text" class="form-control input-box" id="fname" placeholder="Full Name" name="fname" />
+    <div className="container signup-container">
+       <div className="row">
+          <div className="col-md-12">
+          <form onSubmit={submitHandler}>     
+                     <div className="form-group">
+                    <input type="text" className="form-control input-box" id="fname" placeholder="Full Name" ref={fullNameInputRef} />
                </div>
-               <div class="form-group">
-                    <input type="text" class="form-control input-box" id="businessname" placeholder="Business name" name="businessnamemail" />
+               <div className="form-group">
+                    <input type="text" className="form-control input-box" id="businessname" placeholder="Business name"  ref={businessNameInputRef} />
                </div> 
-               <div class="form-group">
-                <select name="omr" id="" class="form-control input-box">
+               <div className="form-group">
+                <select name="omr" id="" className="form-control input-box"ref={countrycodeInputRef} >
                    <option value="OMR(+968)">OMR(+968)</option>
                    <option value="AF(+93)">AF(+93)</option>
                    <option value="AX(+358)">AX(+358)</option>
@@ -62,25 +141,25 @@ export default function SignupPage() {
                    <option value="BD(+880)">BD(+880</option>
                 </select>
           </div> 
-               <div class="form-group">
-                 <input type="text" class="form-control input-box" id="phone" placeholder="Phone" name="Phone" />
+               <div className="form-group">
+                 <input type="text" className="form-control input-box" id="phone" placeholder="Phone" ref={phoneInputRef} />
                </div> 
-               <div class="form-group">
-                 <input type="email" class="form-control input-box" id="email" placeholder="Email" name="email" />
+               <div className="form-group">
+               <input type='email'  className="form-control input-box" id='email' ref={emailInputRef} placeholder="email" required />
                </div> 
-               <div class="form-group">
-                 <input type="password" class="form-control input-box" id="password" placeholder="Password" name="password" />
+               <div className="form-group">
+               <input type='password'  className="form-control input-box" id='password' ref={passwordInputRef}  placeholder="password" required />
                </div> 
-               <div class="form-group">
-                 <input type="password" class="form-control input-box" id="cpassword" placeholder="Re-type Password" name="cpassword" />
+               <div className="form-group">
+                 <input type="password" className="form-control input-box" id="cpassword" ref={retypepasswordInputRef} placeholder="Re-type Password" name="cpassword" />
                </div> 
-               <div class="form-group form-check ">
-                <label class="form-check-label mb-3">
-                  <input class="form-check-input" type="checkbox" />  I Agree to the <a href=""><u>Terms and conditions</u></a>
+               <div className="form-group form-check ">
+                <label className="form-check-label mb-3">
+                  <input className="form-check-input" type="checkbox" />  I Agree to the <a href=""><u>Terms and conditions</u></a>
                 </label>
               </div>
-               <div class="form-group">
-                   <input type="submit" class="form-control success-btn"  value="Register" placeholder="Sing in" />
+               <div className="form-group">
+                   <button  className="form-control"  > Submit </button>
                </div>
             </form>
           </div>
@@ -90,3 +169,5 @@ export default function SignupPage() {
     </div>
   )
 }
+
+export default signupPage;
