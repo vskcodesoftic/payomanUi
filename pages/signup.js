@@ -63,23 +63,6 @@ axios
               'signup Failed'
       );
     });
-  // const enteredEmail = emailInputRef.current.value;
-  // const entredFullname = fullNameInputRef.current.value;
-  // const entredPhoneNumber = phoneInputRef.current.value;
-  // const enteredBusinessName = businessNameInputRef.current.value;
-  // const enteredcuntryCode = countrycodeInputRef.current.value;
-
-
-  //optional  add validtion
-
-  
-    //  try {
-    // const result = await  createUser(entredFullname,enteredBusinessName , enteredcuntryCode, entredPhoneNumber ,enteredEmail , entredPassword);
-    // console.log(result)
-    //  }catch(err){
-    //   console.log(err)
-    //  }
-
 
     
    

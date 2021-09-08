@@ -1,11 +1,47 @@
 import React from 'react'
 import Head from 'next/head'
 import { getSession, useSession } from 'next-auth/client';
+import axios from 'axios';
+import {useForm} from 'react-hook-form';
+
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 export const BankDetailComponent = (props) => {
+  const {register, handleSubmit} = useForm();
 
   const userEmailIdentity = props.userEmailId ; 
+ 
+  async function submitHandler(data){
 
+    //  const newdata = { accountNumber : data.accountNumber ,bankName:data.bankName, swiftCode : data.swiftCode, email : userEmailIdentity }
+    const newdata ={...data ,email: userEmailIdentity }
+    console.log(newdata)
+  axios
+      .post('http://localhost:8001/api/merchant/bankDetails', newdata)
+      .then((res) => {
+          console.log(res.data);
+          toast.success(`bank details added sucessfully !`);
+          // setSpinner(false);
+          // setredirect(true);
+      })
+      .catch((error) => {
+          console.log(error);
+          toast.error(
+            (error.response &&
+                error.response.data &&
+                error.response.data.message) ||
+                'bank details updation Failed'
+        );
+      });
+  
+      
+     
+   }
+  
    const closeNav = () => {
     document.getElementById("mySidebar").style.width = "0";
     document.getElementById("main").style.marginLeft= "0";
@@ -46,28 +82,46 @@ export const BankDetailComponent = (props) => {
             </div>
         </div>
     </div>  
-
+    <ToastContainer />
     <div>
         <div class="container ">
            <div class="row">
                <div class="col-md-12">
                    
-                   <form action=" " class="mt-5 ">
+                   <form onSubmit={handleSubmit(submitHandler)}>     
                        <div class="form-group">
                            <label for="" clas=""> Bank Name {userEmailIdentity} </label>
-                          <input type="text" class="form-control input-box" id="bname" placeholder="" name="bankname" />
+                          <input type="text"
+                           class="form-control input-box"
+                            id="bname" 
+                            placeholder=""
+                            {...register('bankName', {
+                              required: true
+                          })}  />
                        </div>
                        <div class="form-group">
                         <label for="" clas=""> Swift Code </label>
-                            <input type="text" class="form-control input-box" id="businessname" placeholder="" name="businessnamemail" />
+                            <input type="text"
+
+                             class="form-control input-box"
+                              id="swiftCode"
+                               placeholder="" 
+                               {...register('swiftCode',{
+                                 required :true
+                               })}
+                              />
                        </div> 
                        <div class="form-group">
                         <label for="" clas=""> Account Number </label>
-                          <input type="text" class="form-control input-box" id="phone" placeholder="" name="Phone" />
+                          <input type="number"  
+                           {...register('accountNumber', {
+                              required: true
+                          })} 
+                          class="form-control input-box" id="phone"  />
                        </div> 
-                       <div class="form-group">
-                     <input type="submit" class="submit-btn form-control success-btn" value="Save" placeholder="Save" />
-                       </div>
+                       <div className="form-group">
+                   <button  className="form-control success-btn"  > Submit </button>
+               </div>
                   </form>
                </div>
            </div>

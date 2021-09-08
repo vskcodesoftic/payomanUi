@@ -14,7 +14,7 @@ export default NextAuth({
          async  authorize (credentials) {
          const client = await MongoConnectionDb();
          
-          const userColllection = await client.db().collection('merchant');
+          const userColllection = await client.db().collection('merchants');
           const user =   await userColllection.findOne({
                 email :  credentials.email,
             })
