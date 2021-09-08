@@ -4,7 +4,7 @@ import { useState , useRef } from 'react';
 
 import { useRouter } from 'next/router'
 
-import { signIn , useSession} from 'next-auth/client';
+import { signIn , useSession , signOut} from 'next-auth/client';
 import Link from 'next/link';
 
 export const Dashboard = () => {

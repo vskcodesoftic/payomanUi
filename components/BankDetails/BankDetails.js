@@ -1,8 +1,11 @@
 import React from 'react'
 import Head from 'next/head'
+import { getSession, useSession } from 'next-auth/client';
 
-export const BankDetailComponent = () => {
- 
+export const BankDetailComponent = (props) => {
+
+  const userEmailIdentity = props.userEmailId ; 
+
    const closeNav = () => {
     document.getElementById("mySidebar").style.width = "0";
     document.getElementById("main").style.marginLeft= "0";
@@ -51,7 +54,7 @@ export const BankDetailComponent = () => {
                    
                    <form action=" " class="mt-5 ">
                        <div class="form-group">
-                           <label for="" clas=""> Bank Name </label>
+                           <label for="" clas=""> Bank Name {userEmailIdentity} </label>
                           <input type="text" class="form-control input-box" id="bname" placeholder="" name="bankname" />
                        </div>
                        <div class="form-group">
@@ -75,5 +78,23 @@ export const BankDetailComponent = () => {
 
     )
 }
+
+
+export  async function getServerSideProps(context){
+    const [session, loading] = useSession()
+   if(!session) {
+     return {
+       
+       redirect : {
+         destination : '/auth',
+         permanent : false,
+       }
+      }; 
+   }
+    return {
+      props : { session }
+    }
+  }
+  
 
 export default BankDetailComponent;

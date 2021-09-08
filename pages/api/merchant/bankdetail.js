@@ -9,13 +9,12 @@ async function handler(req, res) {
   
     const data = req.body;
   
-    const {fullname, businessname, countrycode, phonenumber, email, password } = data;
+    const { accountNumber , bankName, swiftCode , email } = data;
   
     if (
       !email ||
-      !email.includes('@') ||
-      !password ||
-      password.trim().length < 7
+      !email.includes('@') 
+     
     ) {
       res.status(422).json({
         message:
@@ -30,26 +29,25 @@ async function handler(req, res) {
   
     const existingUser = await db.collection('merchant').findOne({ email: email });
   
-    if (existingUser) {
-      res.status(422).json({ message: 'merchant exists already!' });
+    if (!existingUser) {
+      res.status(422).json({ message: 'merchant doesnot exists !' });
       client.close();
       return;
     }
   
-    const hashedPassword = await hashPassword(password);
   
 
      
     try{
-      const result = await db.collection('merchant').insertOne({
-        fullname, 
-        businessname,
-        countrycode,
-         phonenumber,
-        email: email,
-        password: hashedPassword,
-      });
-      res.status(201).json({ message: 'Created merchant!' , merchant  : result});
+      const result = await db.collection('merchant').updateOneupdateOne(
+        { email: email },
+        {
+          accountNumber, 
+          bankName,
+          swiftCode   
+        }
+      );
+      res.status(201).json({ message: 'updated bankdetails sucessfully' , merchant  : result});
       client.close();
     }catch(err){
       console.log(err)

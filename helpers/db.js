@@ -1,8 +1,6 @@
 import {MongoClient } from 'mongodb'
 
-import React from 'react'
-
 export const MongoConnectionDb =  async () => {
-  const client = await MongoClient.connect('mongodb+srv://admin:admin@janpad.k6mjj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+  const client = await MongoClient.connect('mongodb+srv://admin:FV12iwRY8h3lW5i1@cluster0.r2dy9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
   return client;
 }

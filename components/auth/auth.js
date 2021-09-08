@@ -35,10 +35,15 @@ const AuthForm = () => {
      
 
           if(!result.error){
+            toast.success(`Login sucessfull`)
+
             router.replace('/dashboard');
           }
-          toast.warn(`${result.error}`)
-
+      
+          if(result.error){
+            toast.warn(`Login failed ${result.error}`)
+             return;
+          }
           console.log(result)
         
       }

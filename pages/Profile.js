@@ -2,6 +2,7 @@ import { getSession, useSession } from 'next-auth/client';
 import ProfileComponent from '../components/Profile/Profile';
 
 
+
 function ProfilePage() {
   return <ProfileComponent />;
 }

@@ -2,7 +2,8 @@ import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
 import { verifyHashPassword } from '../../../helpers/auth';
 import { MongoConnectionDb } from '../../../helpers/db';
-
+import axios from 'axios'
+import FormData from 'form-data'
 
 export default NextAuth({
     session : {
@@ -13,27 +14,33 @@ export default NextAuth({
          async  authorize (credentials) {
          const client = await MongoConnectionDb();
          
-          const userColllection = await client.db().collection('users');
+          const userColllection = await client.db().collection('merchant');
           const user =   await userColllection.findOne({
-                email :  credentials.email
+                email :  credentials.email,
             })
 
-        if(!user){
-            client.close()
+            if (!user) {
+                client.close();
+                throw new Error("No merchant found!");
+              }
 
-            throw new Error('no user found');
-        }
-        
+
         const isVaild = await verifyHashPassword(credentials.password , user.password);
-        
         if(!isVaild){
             client.close()
 
             throw new Error('password doesnt match');
         }
-        client.close()
 
-        return { email : user.email }
+        return {
+            email: user.email,
+            phone: "9322224994",
+            bio: "this is simple bio example",
+          };
+
+    
+        
+  
 
            }
         }) 
