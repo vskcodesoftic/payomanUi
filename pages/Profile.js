@@ -3,8 +3,9 @@ import ProfileComponent from '../components/Profile/Profile';
 
 
 
-function ProfilePage() {
-  return <ProfileComponent />;
+function ProfilePage({ session }) {
+  const userEmail = session.user.email;
+  return <ProfileComponent userEmailId={userEmail} />;
 }
 
 export  async function getServerSideProps(context){
