@@ -50,7 +50,6 @@ const onChangeHandler = (e) =>{
     fd.append('email',userEmailIdentity)
 
    
-   console.log("data", fd)
 
     axios
         .post('http://localhost:8001/api/merchant/profile', fd)
@@ -195,7 +194,7 @@ const onChangeHandler = (e) =>{
 
                      
                    
-                     <input type="submit" class="submit-btn form-control success-btn" value="Save" placeholder="Save" />
+                     <input type="submit" class="submit-btn form-control success-btn" value="update profile" placeholder="Save" />
                   </form>
                </div>
            </div>
