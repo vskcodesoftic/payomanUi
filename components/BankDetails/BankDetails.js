@@ -2,7 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import { getSession, useSession } from 'next-auth/client';
 import axios from 'axios';
-import {useForm} from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -11,10 +11,26 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 export const BankDetailComponent = (props) => {
-  const {register, handleSubmit} = useForm();
-
-  const userEmailIdentity = props.userEmailId ; 
  
+  const userEmailIdentity = props.userEmailId ; 
+
+  const userProfileData = props.profileData;
+
+  let bankName = userProfileData.bankName || '';
+  let useraccountNumber = userProfileData.accountNumber || '';
+ let userswiftCode = userProfileData.swiftCode ||  '';
+
+
+  const {register, handleSubmit} = useForm({defaultValues:
+    { 
+      accountNumber : `${useraccountNumber}`,
+       bankName  :`${bankName}`,
+       swiftCode :`${userswiftCode}`,
+ 
+
+   }});
+
+
   async function submitHandler(data){
 
     //  const newdata = { accountNumber : data.accountNumber ,bankName:data.bankName, swiftCode : data.swiftCode, email : userEmailIdentity }
@@ -90,7 +106,7 @@ export const BankDetailComponent = (props) => {
                    
                    <form onSubmit={handleSubmit(submitHandler)}>     
                        <div class="form-group">
-                           <label for="" clas=""> Bank Name {userEmailIdentity} </label>
+                           <label for="" clas=""> Bank Name </label>
                           <input type="text"
                            class="form-control input-box"
                             id="bname" 

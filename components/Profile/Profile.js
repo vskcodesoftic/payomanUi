@@ -37,7 +37,8 @@ const baseUrl = "http://localhost:8001"
         businessName : `${businessName}`,
         countryCode : `${countryCode}`,
         name :`${userfullname}`,
-        swiftCode :`${userswiftCode}`
+        swiftCode :`${userswiftCode}`,
+        phoneNumber :`${phoneNumber}`
 
     }});
   const fileInput = useRef('');

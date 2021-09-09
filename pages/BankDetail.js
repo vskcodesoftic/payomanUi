@@ -2,16 +2,23 @@ import { getSession, useSession } from 'next-auth/client';
 import BanDetailComponent from '../components/BankDetails/BankDetails';
 
 
-function BankDetail({ session }) {
-  console.log("hellogfgf",session.user.email)
+function BankDetail({ session ,data  }) {
 
   const userEmail = session.user.email;
 
-  return <BanDetailComponent userEmailId={userEmail} />;
+  return <BanDetailComponent userEmailId={userEmail} profileData={data} />;
 }
 
 export  async function getServerSideProps(context){
+
+ const baseUrl = "http://localhost:8001"
+
+
  const session = await getSession({ req : context.req })
+
+  const res = await fetch(`${baseUrl}/api/merchant/completeProfile/${session.user.email}`)
+ const data = await res.json()
+
  if(!session) {
    return {
      
@@ -22,9 +29,12 @@ export  async function getServerSideProps(context){
     }; 
  }
   return {
-    props : { session }
+    props : { session ,data }
   }
 }
 
 export default BankDetail;
+
+
+
 

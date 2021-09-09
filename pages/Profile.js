@@ -7,8 +7,6 @@ import axios from 'axios'
 const ProfilePage = ({ session ,data }) =>{
   const userEmail = session.user.email;
 
-  const username = data.name;
-  console.log("username",username)
  
   return <ProfileComponent userEmailId={userEmail} profileData={data}  />;
 }
