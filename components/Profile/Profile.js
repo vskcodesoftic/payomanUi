@@ -13,8 +13,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const ProfileComponent = (props) => {
+  const {register, handleSubmit} = useForm();
 
-    const {register, handleSubmit} = useForm();
 const [imagepic, setimagepic] = useState()
   
 
