@@ -7,7 +7,6 @@ import axios from 'axios';
 import {useForm} from 'react-hook-form';
 import React, {useState, useRef} from 'react';
 
-import FormData from 'form-data'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -31,48 +30,33 @@ const onChangeHandler = (e) =>{
 
     async function submitHandler(data){
 
+      console.log(
+        'onSubmitFn:',
+        data,
+        '  imageFile: ',
+        fileInput.current.files[0].name
+    );
+    const fd = new FormData();
+    for (var key in data) {
+        fd.append(key, data[key]); // formdata doesn't take objects
+    }
 
-    //  const fd = new FormData();
+    fd.append(
+        'image',
+        fileInput.current.files[0],
+        fileInput.current.files[0].name
+    );
+ 
+    fd.append('email',userEmailIdentity)
 
+   
+   console.log("data", fd)
 
-    // for (var key in data) {
-    //     fd.append(key, data[key]); // formdata doesn't take objects
-    // }
-
-    // fd.append(
-    //     'image',
-    //     fileInput.current.files[0],
-    //     fileInput.current.files[0].name
-    // );
-      //  const newdata = { accountNumber : data.accountNumber ,bankName:data.bankName, swiftCode : data.swiftCode, email : userEmailIdentity }
-    
-    //   console.log(
-    //     'onSubmitFn:',
-    //     data,
-    //     '  imageFile: ',
-    //     fileInput.current.files[0].name
-    // );
-    // for (var key in data) {
-    //     fd.append(key, data[key]); // formdata doesn't take objects
-    // }
-   // still to resolve promise
-  // still to resolve promise
-//   const fd = new FormData();
-//   for (var key in data) {
-//       fd.append(key, data[key]); // formdata doesn't take objects
-//   }
-
-//   fd.append(
-//       'image',
-//       fileInput.current.files[0],
-//       fileInput.current.files[0].name
-//   );
-const newdata = { email: data.email}
     axios
-        .post('http://localhost:8001/api/merchant/profile', newdata)
+        .post('http://localhost:8001/api/merchant/profile', fd)
         .then((res) => {
             console.log(res.data);
-            toast.success(`bank details added sucessfully !`);
+            toast.success(`profile details added sucessfully !`);
             // setSpinner(false);
             // setredirect(true);
         })
@@ -82,7 +66,7 @@ const newdata = { email: data.email}
               (error.response &&
                   error.response.data &&
                   error.response.data.message) ||
-                  'bank details updation Failed'
+                  'profile details updation Failed'
           );
         });
     
@@ -146,9 +130,7 @@ const newdata = { email: data.email}
                        <input
                                                 required
                                                 multiple
-                                                {...register('image', {
-                                                    required: true
-                                                })}
+                                                 ref={fileInput}
                                                 onChange={onChangeHandler}
                                                 type="file"
                                                 className="form-control"
