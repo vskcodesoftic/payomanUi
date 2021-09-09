@@ -1,3 +1,5 @@
+import React, {useState, useRef , useEffect} from 'react';
+
 import Head from 'next/head'
 
 import { getSession, useSession } from 'next-auth/client';
@@ -5,28 +7,44 @@ import { getSession, useSession } from 'next-auth/client';
 import axios from 'axios';
 
 import {useForm} from 'react-hook-form';
-import React, {useState, useRef} from 'react';
 
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const ProfileComponent = (props) => {
-  const {register, handleSubmit} = useForm();
+const baseUrl = "http://localhost:8001"
+  const userEmailIdentity = props.userEmailId ; 
+ 
+  const userProfileData = props.profileData;
+ 
+  let bankName = userProfileData.bankName;
+  let businessName =userProfileData.businessName ;
+  let countryCode = userProfileData.countryCode;
+  let useremail = userProfileData.email;
+  let usermessage = userProfileData.message ;
+  let userfullname = userProfileData.name;
+  let phoneNumber = userProfileData.phoneNumber ;
+  let profilePic = userProfileData.profilePic;
+  let useraccountNumber = userProfileData.accountNumber;
+ let userswiftCode = userProfileData.swiftCode;
 
-const [imagepic, setimagepic] = useState()
-  
 
-    const fileInput = useRef('');
-    const userEmailIdentity = props.userEmailId ; 
+  const {register, handleSubmit } = useForm({defaultValues:
+     { 
+       accountNumber : `${useraccountNumber}`,
+        bankName  :`${bankName}`,
+        businessName : `${businessName}`,
+        countryCode : `${countryCode}`,
+        name :`${userfullname}`,
+        swiftCode :`${userswiftCode}`
+
+    }});
+  const fileInput = useRef('');
 
 
-const onChangeHandler = (e) =>{
-    const filesImage = e.target.files[0]
-    setimagepic(filesImage)
-    console.log("imagefff",filesImage)
 
-}
+
 
     async function submitHandler(data){
 
@@ -123,31 +141,54 @@ const onChangeHandler = (e) =>{
                    
                    <form onSubmit={handleSubmit(submitHandler)} class="mt-3 ">
                     <div class="preview-img text-center  " data-holder-rendered="true">
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg" alt="" class="rounded-circle z-depth-2 img-fluid " width="200" />
+                        <img src={`${baseUrl}/${userProfileData.profilePic}`} alt="" class="rounded-circle z-depth-2 img-fluid " width="200" height="300" />
                     </div>
                        <div class="form form-group mt-3">
                        <input
                                                 required
                                                 multiple
                                                  ref={fileInput}
-                                                onChange={onChangeHandler}
                                                 type="file"
                                                 className="form-control"
                                                 placeholder="Please choose Image"
                                             />
                        </div>
                        <div class="form-group">
-                           <label for="" clas=""> Name </label>
+                           <label for="" clas=""> Name  </label>
                           <input
                            type="text"
-                           {...register('accountNumber', {
+                           {...register('name', {
                             required: true
                             })}
+                            // placeholder={profileData.name}
+              
                             class="form-control input-box" 
-                            id="fname" placeholder=""  />
+                            id="fname" />
                        </div>
                        <div class="form-group">
                         <label for="" clas=""> Business Name </label>
+                            <input type="text" 
+                            {...register('businessName', {
+                                required: true
+                            })}
+                            class="form-control input-box"
+                             id="businessname" placeholder="" 
+                              />
+
+                       </div> 
+              
+                       <div class="form-group">
+                        <label for="" clas=""> Account Number  </label>
+                          <input type="text" 
+                          {...register('accountNumber', {
+                            required: true
+                        })}
+                          class="form-control 
+                          input-box" id="phone"
+                           placeholder=""  />
+                       </div> 
+                       <div class="form-group">
+                        <label for="" clas=""> Bank Name </label>
                             <input type="text" 
                             {...register('bankName', {
                                 required: true
@@ -156,17 +197,6 @@ const onChangeHandler = (e) =>{
                              id="businessname" placeholder="" 
                               />
 
-                       </div> 
-
-                       <div class="form-group">
-                        <label for="" clas=""> Account Number </label>
-                          <input type="text" 
-                          {...register('accountNumber', {
-                            required: true
-                        })}
-                          class="form-control 
-                          input-box" id="phone"
-                           placeholder=""  />
                        </div> 
 
                        <div class="form-group">
@@ -208,8 +238,9 @@ const onChangeHandler = (e) =>{
 }
 
 
-export  async function getServerSideProps(context){
+export  async function getStaticProps(context){
     const [session, loading] = useSession()
+    let helloworld ="hello world"
    if(!session) {
      return {
        
@@ -220,7 +251,8 @@ export  async function getServerSideProps(context){
       }; 
    }
     return {
-      props : { session }
+      props : { session },
+      helloworld 
     }
   }
 
