@@ -95,12 +95,12 @@ export const ChangePasswordComponent = (props) => {
       </Head>
 
       <div>
-        <div class="navbar-sec p-1">
-          <div class="container mt-2 mb-2">
-            <div class="row">
-              <div class="col-md-12 nav-link-new font-weight-bold">
+        <div className="navbar-sec p-1">
+          <div className="container mt-2 mb-2">
+            <div className="row">
+              <div className="col-md-12 nav-link-new font-weight-bold">
                 <a href="Sidebar">
-                  <i class="fa fa-arrow-left mr-3"></i>
+                  <i className="fa fa-arrow-left mr-3"></i>
                 </a>
                 change password
               </div>
@@ -109,11 +109,11 @@ export const ChangePasswordComponent = (props) => {
         </div>
         <ToastContainer />
         <div>
-          <div class="container ">
-            <div class="row">
-              <div class="col-md-12">
-                <form onSubmit={handleSubmit(submitHandler)} class="mt-3 ">
-                  <div class="form-group">
+          <div className="container ">
+            <div className="row">
+              <div className="col-md-12">
+                <form onSubmit={handleSubmit(submitHandler)} className="mt-3 ">
+                  <div className="form-group">
                     <label for="" clas="">
                       {" "}
                       Old Password{" "}
@@ -123,13 +123,13 @@ export const ChangePasswordComponent = (props) => {
                       {...register("oldpassword", {
                         required: true,
                       })}
-                      class="form-control input-box"
+                      className="form-control input-box"
                       id="fname"
                       placeholder=""
                     />
                   </div>
 
-                  <div class="form-group">
+                  <div className="form-group">
                     <label for="" clas="">
                       {" "}
                       New Password{" "}
@@ -139,14 +139,14 @@ export const ChangePasswordComponent = (props) => {
                       {...register("newpassword", {
                         required: true,
                       })}
-                      class="form-control 
+                      className="form-control 
                           input-box"
                       id="phone"
                       placeholder=""
                     />
                   </div>
 
-                  <div class="form-group">
+                  <div className="form-group">
                     <label for="" clas="">
                       {" "}
                       Retype-new Password{" "}
@@ -154,7 +154,7 @@ export const ChangePasswordComponent = (props) => {
                     <input
                       type="password"
                       ref={RetypePasswordRef}
-                      class="form-control 
+                      className="form-control 
                           input-box"
                       id="phone"
                       placeholder=""
@@ -163,7 +163,7 @@ export const ChangePasswordComponent = (props) => {
 
                   <input
                     type="submit"
-                    class="submit-btn form-control success-btn"
+                    className="submit-btn form-control success-btn"
                     value="Save"
                     placeholder="Save"
                   />

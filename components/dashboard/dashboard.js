@@ -43,80 +43,80 @@ export const Dashboard = () => {
        <div>
 
              <div id="main">
-                    <div class="openbtn" onClick={openNav} >☰ &nbsp;&nbsp;Dashboard</div>  
-                    <div class="container">
-                       <div class="row">
-                          <div class='col-md-12'>
-                              <div class="wallet-card text-white mt-3 text-center pb-5">
-                                  <p class="pt-3 pb-5 ">Wallet</p>
+                    <div className="openbtn" onClick={openNav} >☰ &nbsp;&nbsp;Dashboard</div>  
+                    <div className="container">
+                       <div className="row">
+                          <div className='col-md-12'>
+                              <div className="wallet-card text-white mt-3 text-center pb-5">
+                                  <p className="pt-3 pb-5 ">Wallet</p>
                                   <h6>Error OMR</h6>
                               </div>
                           </div>
                        </div>
-                       <div class="row text-center mt-5" >
-                       <div class="col-md-12">
-                          <button class="received-money-button pt-1 pb-1 pr-3 pl-3">Received Transection</button>
+                       <div className="row text-center mt-5" >
+                       <div className="col-md-12">
+                          <button className="received-money-button pt-1 pb-1 pr-3 pl-3">Received Transection</button>
                       </div>
                   </div>
-                  <div class="row text-center mt-5">
+                  <div className="row text-center mt-5">
                      
                  </div>
                 </div>
  
-   <div class="container">
-     <div class="row row pt-3 pb-3 mt-3" >
-        <div class="col-sm-12">
-           <p class="float-left"><i class='fa fa-check-circle fa-lg'> Received to </i></p>
-           <p class="text-right">$312</p>    
+   <div className="container">
+     <div className="row row pt-3 pb-3 mt-3" >
+        <div className="col-sm-12">
+           <p className="float-left"><i className='fa fa-check-circle fa-lg'> Received to </i></p>
+           <p className="text-right">$312</p>    
         </div>
-        <div class="col-sm-12">
-          <p class="float-left">ABC Company</p>
+        <div className="col-sm-12">
+          <p className="float-left">ABC Company</p>
        </div>
-       <div class="col-sm-12">
-          <p class="float-left">03-09-2021 | 11:10 AM</p>
-          <p class="text-right" >+91 8579213649</p>    
+       <div className="col-sm-12">
+          <p className="float-left">03-09-2021 | 11:10 AM</p>
+          <p className="text-right" >+91 8579213649</p>    
        </div>
      </div>
 
-     <div class="row row pt-3 pb-3 mt-3" >
-        <div class="col-sm-12">
-          <p class="float-left"><i class='fa fa-check-circle fa-lg'> Received to </i></p>
-          <p class="text-right">$312</p>    
+     <div className="row row pt-3 pb-3 mt-3" >
+        <div className="col-sm-12">
+          <p className="float-left"><i className='fa fa-check-circle fa-lg'> Received to </i></p>
+          <p className="text-right">$312</p>    
         </div>
-        <div class="col-sm-12">
-          <p class="float-left">ABC Company</p>
+        <div className="col-sm-12">
+          <p className="float-left">ABC Company</p>
        </div>
-       <div class="col-sm-12">
-         <p class="float-left">03-09-2021 | 11:10 AM</p>
-         <p class="text-right" >+91 8579213649</p>    
+       <div className="col-sm-12">
+         <p className="float-left">03-09-2021 | 11:10 AM</p>
+         <p className="text-right" >+91 8579213649</p>    
        </div>
       </div>
 
-      <div class="row row pt-3 pb-3 mt-3" >
-        <div class="col-sm-12">
-          <p class="float-left"><i class='fa fa-check-circle fa-lg'> Received to </i></p>
-          <p class="text-right">$312</p>    
+      <div className="row row pt-3 pb-3 mt-3" >
+        <div className="col-sm-12">
+          <p className="float-left"><i className='fa fa-check-circle fa-lg'> Received to </i></p>
+          <p className="text-right">$312</p>    
         </div>
-        <div class="col-sm-12">
-          <p class="float-left">ABC Company</p>
+        <div className="col-sm-12">
+          <p className="float-left">ABC Company</p>
        </div>
-       <div class="col-sm-12">
-         <p class="float-left">03-09-2021 | 11:10 AM</p>
-         <p class="text-right" >+91 8579213649</p>    
+       <div className="col-sm-12">
+         <p className="float-left">03-09-2021 | 11:10 AM</p>
+         <p className="text-right" >+91 8579213649</p>    
        </div>
       </div>
 
-      <div class="row row pt-3 pb-3 mt-3" >
-        <div class="col-sm-12">
-          <p class="float-left"><i class='fa fa-check-circle fa-lg'> Received to </i></p>
-          <p class="text-right">$312</p>    
+      <div className="row row pt-3 pb-3 mt-3" >
+        <div className="col-sm-12">
+          <p className="float-left"><i className='fa fa-check-circle fa-lg'> Received to </i></p>
+          <p className="text-right">$312</p>    
         </div>
-        <div class="col-sm-12">
-          <p class="float-left">ABC Company</p>
+        <div className="col-sm-12">
+          <p className="float-left">ABC Company</p>
        </div>
-       <div class="col-sm-12">
-         <p class="float-left">03-09-2021 | 11:10 AM</p>
-         <p class="text-right" >+91 8579213649</p>    
+       <div className="col-sm-12">
+         <p className="float-left">03-09-2021 | 11:10 AM</p>
+         <p className="text-right" >+91 8579213649</p>    
        </div>
       </div>
       
@@ -124,58 +124,58 @@ export const Dashboard = () => {
   </div> 
 
      
-  <div id="mySidebar" class="sidebar">
-    <div class="mb-2">
-        <a href="#" class="closebtn" onClick={closeNav}><i class="fa fa-arrow-left mr-2 ml-2"></i> Dashboard</a>
+  <div id="mySidebar" className="sidebar">
+    <div className="mb-2">
+        <a href="#" className="closebtn" onClick={closeNav}><i className="fa fa-arrow-left mr-2 ml-2"></i> Dashboard</a>
     </div>
-    <div class="row logo-raw code-scaner-container mb-4">
-        <div class="col-md-12">
-           <div class="col-md-12 text-center logo-column-2 pt-3">
+    <div className="row logo-raw code-scaner-container mb-4">
+        <div className="col-md-12">
+           <div className="col-md-12 text-center logo-column-2 pt-3">
                <img src="images/logo.svg" alt=" " />
            </div>
         </div>
-        <div class="col-md-12">
-            <div class="col-md-12 text-center logo-column">
-                <img src="images/qrcode.png" alt="" class="img-fluid" />
+        <div className="col-md-12">
+            <div className="col-md-12 text-center logo-column">
+                <img src="images/qrcode.png" alt="" className="img-fluid" />
            </div>
         </div>
     </div>
-    <div class="links ">
-        <div class="container "> 
-            <div class="row">
-               <div class="col-md-12 mt-4">
-                <div class=" " id="collapsibleNavbar">
-                <ul class="navbar-nav">
-                      <li class="nav-item mt-3 ">
-                        <Link href="/"><a class="nav-link active " ><i class="fas fa-home mr-3"></i> Dashboard <i class="fa fa-chevron-right float-right"></i></a></Link>
+    <div className="links ">
+        <div className="container "> 
+            <div className="row">
+               <div className="col-md-12 mt-4">
+                <div className=" " id="collapsibleNavbar">
+                <ul className="navbar-nav">
+                      <li className="nav-item mt-3 ">
+                        <Link href="/"><a className="nav-link active " ><i className="fas fa-home mr-3"></i> Dashboard <i className="fa fa-chevron-right float-right"></i></a></Link>
                       </li>
-                      <li class="nav-item mt-3">
-                      <Link href="/Profile"><a class="nav-link" ><i class="fas fa-user mr-3"></i> Profile <i class="fa fa-chevron-right float-right"></i></a></Link>
+                      <li className="nav-item mt-3">
+                      <Link href="/Profile"><a className="nav-link" ><i className="fas fa-user mr-3"></i> Profile <i className="fa fa-chevron-right float-right"></i></a></Link>
                       </li>
-                      <li class="nav-item mt-3">
-                      <Link href="/BankDetail"><a class="nav-link"><i class="fas fa-bank mr-3"></i> Bank Details <i class="fa fa-chevron-right float-right"></i></a></Link>
+                      <li className="nav-item mt-3">
+                      <Link href="/BankDetail"><a className="nav-link"><i className="fas fa-bank mr-3"></i> Bank Details <i className="fa fa-chevron-right float-right"></i></a></Link>
                       </li> 
                        
-                      <li class="nav-item mt-3">
-                      <Link href="/ReceivedAmount"><a class="nav-link" ><i class="fas fa-money mr-3"></i> Received Amounts <i class="fa fa-chevron-right float-right"></i></a></Link>
+                      <li className="nav-item mt-3">
+                      <Link href="/ReceivedAmount"><a className="nav-link" ><i className="fas fa-money mr-3"></i> Received Amounts <i className="fa fa-chevron-right float-right"></i></a></Link>
                       </li> 
-                      <li class="nav-item mt-3">
-                      <Link href="/ChangePassword"><a class="nav-link" ><i class="fas fa-key mr-3"></i> Change Password <i class="fa fa-chevron-right float-right"></i></a></Link>
+                      <li className="nav-item mt-3">
+                      <Link href="/ChangePassword"><a className="nav-link" ><i className="fas fa-key mr-3"></i> Change Password <i className="fa fa-chevron-right float-right"></i></a></Link>
                       </li>    
-                      <li class="nav-item mt-3">
-                      <Link href="/Privacy"><a class="nav-link" ><i class="fas fa-lock mr-3"></i> Privacy and Security <i class="fa fa-chevron-right float-right"></i></a></Link>
+                      <li className="nav-item mt-3">
+                      <Link href="/Privacy"><a className="nav-link" ><i className="fas fa-lock mr-3"></i> Privacy and Security <i className="fa fa-chevron-right float-right"></i></a></Link>
                       </li> 
-                      <li class="nav-item mt-3">
-                      <Link href="/Support"><a class="nav-link" ><i class="fas fa-headphones mr-3"></i> Support <i class="fa fa-chevron-right float-right"></i></a></Link>
+                      <li className="nav-item mt-3">
+                      <Link href="/Support"><a className="nav-link" ><i className="fas fa-headphones mr-3"></i> Support <i className="fa fa-chevron-right float-right"></i></a></Link>
                     </li> 
                     {session && (
-                    <li class="nav-item mt-3">
-                    <Link href="/"><a class="nav-link"onClick={logOutHandler}><i class="fas fa-user mr-3"></i> Logout  <i class="fa fa-chevron-right float-right"></i></a></Link>
+                    <li className="nav-item mt-3">
+                    <Link href="/"><a className="nav-link"onClick={logOutHandler}><i className="fas fa-user mr-3"></i> Logout  <i className="fa fa-chevron-right float-right"></i></a></Link>
                     </li> 
                     )}
-                    <li class="nav-item mt-3">
-                        <hr class="float-left" />
-                        <p class="text-center">@Copyright PayOman , Design And Develeope By <span >Codesoftic Tech PVT LTD.</span></p>
+                    <li className="nav-item mt-3">
+                        <hr className="float-left" />
+                        <p className="text-center">@Copyright PayOman , Design And Develeope By <span >Codesoftic Tech PVT LTD.</span></p>
                     </li>
                     </ul>
                   </div>

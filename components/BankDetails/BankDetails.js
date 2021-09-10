@@ -88,11 +88,11 @@ export const BankDetailComponent = (props) => {
 
             </Head>
 
-    <div class="navbar-sec p-1">
-        <div class="container mt-2 mb-2">
-            <div class="row">
-                <div class="col-md-12 nav-link-new font-weight-bold">
-                <a href="Sidebar"><i class="fa fa-arrow-left mr-3"></i></a>
+    <div className="navbar-sec p-1">
+        <div className="container mt-2 mb-2">
+            <div className="row">
+                <div className="col-md-12 nav-link-new font-weight-bold">
+                <a href="Sidebar"><i className="fa fa-arrow-left mr-3"></i></a>
                     Bank Details
                 </div>
             </div>
@@ -100,26 +100,26 @@ export const BankDetailComponent = (props) => {
     </div>  
     <ToastContainer />
     <div>
-        <div class="container ">
-           <div class="row">
-               <div class="col-md-12">
+        <div className="container ">
+           <div className="row">
+               <div className="col-md-12">
                    
                    <form onSubmit={handleSubmit(submitHandler)}>     
-                       <div class="form-group">
+                       <div className="form-group">
                            <label for="" clas=""> Bank Name </label>
                           <input type="text"
-                           class="form-control input-box"
+                           className="form-control input-box"
                             id="bname" 
                             placeholder=""
                             {...register('bankName', {
                               required: true
                           })}  />
                        </div>
-                       <div class="form-group">
+                       <div className="form-group">
                         <label for="" clas=""> Swift Code </label>
                             <input type="text"
 
-                             class="form-control input-box"
+                             className="form-control input-box"
                               id="swiftCode"
                                placeholder="" 
                                {...register('swiftCode',{
@@ -127,13 +127,13 @@ export const BankDetailComponent = (props) => {
                                })}
                               />
                        </div> 
-                       <div class="form-group">
+                       <div className="form-group">
                         <label for="" clas=""> Account Number </label>
                           <input type="number"  
                            {...register('accountNumber', {
                               required: true
                           })} 
-                          class="form-control input-box" id="phone"  />
+                          className="form-control input-box" id="phone"  />
                        </div> 
                        <div className="form-group">
                    <button  className="form-control success-btn"  > Submit </button>

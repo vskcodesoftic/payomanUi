@@ -34,75 +34,75 @@ export const ReceivedAmountComponent = () => {
             </Head>
   
 
-    <div class="navbar-sec p-1 ">
-        <div class="container mt-2 mb-2">
-            <div class="row">
-                <div class="col-md-12 nav-link-new font-weight-bold">
-                <a href="Sidebar"><i class="fa fa-arrow-left mr-3"></i></a>
+    <div className="navbar-sec p-1 ">
+        <div className="container mt-2 mb-2">
+            <div className="row">
+                <div className="col-md-12 nav-link-new font-weight-bold">
+                <a href="Sidebar"><i className="fa fa-arrow-left mr-3"></i></a>
                     Received Amount
                 </div>
             </div>
         </div>
     </div>  
 
-    <div class="container">
-        <div class="row text-center mt-5" >
-            <div class="col-md-12 mb-4">
-               <button class="received-money-button pt-1 pb-1 pr-3 pl-3">Receivd Transection</button>
+    <div className="container">
+        <div className="row text-center mt-5" >
+            <div className="col-md-12 mb-4">
+               <button className="received-money-button pt-1 pb-1 pr-3 pl-3">Receivd Transection</button>
            </div>
        </div>
-        <div class="row  pt-3 pb-3 mt-3" >
-           <div class="col-sm-12">
-              <p class="float-left"><i class='fa fa-check-circle fa-lg'> Received to </i></p>
-              <p class="text-right"> $312</p>    
+        <div className="row  pt-3 pb-3 mt-3" >
+           <div className="col-sm-12">
+              <p className="float-left"><i className='fa fa-check-circle fa-lg'> Received to </i></p>
+              <p className="text-right"> $312</p>    
            </div>
-           <div class="col-sm-12">
-             <p class="float-left">ABC Company</p>
+           <div className="col-sm-12">
+             <p className="float-left">ABC Company</p>
           </div>
-          <div class="col-sm-12">
-             <p class="float-left">03-09-2021 | 11:10 AM</p>
-             <p class="text-right" >+91 8579213649</p>    
+          <div className="col-sm-12">
+             <p className="float-left">03-09-2021 | 11:10 AM</p>
+             <p className="text-right" >+91 8579213649</p>    
           </div>
         </div>
    
-        <div class="row row pt-3 pb-3 mt-3" >
-           <div class="col-sm-12">
-             <p class="float-left"><i class='fa fa-check-circle fa-lg'> Received to </i></p>
-             <p class="text-right" >$312</p>    
+        <div className="row row pt-3 pb-3 mt-3" >
+           <div className="col-sm-12">
+             <p className="float-left"><i className='fa fa-check-circle fa-lg'> Received to </i></p>
+             <p className="text-right" >$312</p>    
            </div>
-           <div class="col-sm-12">
-             <p class="float-left">ABC Company</p>
+           <div className="col-sm-12">
+             <p className="float-left">ABC Company</p>
           </div>
-          <div class="col-sm-12">
-            <p class="float-left">03-09-2021 | 11:10 AM</p>
-            <p class="text-right" >+91 8579213649</p>    
+          <div className="col-sm-12">
+            <p className="float-left">03-09-2021 | 11:10 AM</p>
+            <p className="text-right" >+91 8579213649</p>    
           </div>
          </div>
    
-         <div class="row row pt-3 pb-3 mt-3" >
-           <div class="col-sm-12">
-             <p class="float-left"><i class='fa fa-check-circle fa-lg'> Received to </i></p>
-             <p class="text-right"> $312</p>    
+         <div className="row row pt-3 pb-3 mt-3" >
+           <div className="col-sm-12">
+             <p className="float-left"><i className='fa fa-check-circle fa-lg'> Received to </i></p>
+             <p className="text-right"> $312</p>    
            </div>
-           <div class="col-sm-12">
-             <p class="float-left">ABC Company</p>
+           <div className="col-sm-12">
+             <p className="float-left">ABC Company</p>
           </div>
-          <div class="col-sm-12">
-            <p class="float-left">03-09-2021 | 11:10 AM</p>
-            <p class="text-right" >+91 8579213649</p>    
+          <div className="col-sm-12">
+            <p className="float-left">03-09-2021 | 11:10 AM</p>
+            <p className="text-right" >+91 8579213649</p>    
           </div>
          </div>
-         <div class="row row pt-3 pb-3 mt-3" >
-           <div class="col-sm-12">
-             <p class="float-left"><i class='fa fa-check-circle fa-lg'> Received to </i></p>
-             <p class="text-right" >$312</p>    
+         <div className="row row pt-3 pb-3 mt-3" >
+           <div className="col-sm-12">
+             <p className="float-left"><i className='fa fa-check-circle fa-lg'> Received to </i></p>
+             <p className="text-right" >$312</p>    
            </div>
-           <div class="col-sm-12">
-             <p class="float-left">ABC Company</p>
+           <div className="col-sm-12">
+             <p className="float-left">ABC Company</p>
           </div>
-          <div class="col-sm-12">
-            <p class="float-left">03-09-2021 | 11:10 AM</p>
-            <p class="text-right" >+91 8579213649</p>    
+          <div className="col-sm-12">
+            <p className="float-left">03-09-2021 | 11:10 AM</p>
+            <p className="text-right" >+91 8579213649</p>    
           </div>
          </div>
       </div>
