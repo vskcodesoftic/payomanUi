@@ -37,7 +37,7 @@ export const BankDetailComponent = (props) => {
     const newdata ={...data ,email: userEmailIdentity }
     console.log(newdata)
   axios
-      .post('http://localhost:8001/api/merchant/bankDetails', newdata)
+      .post('https://payoman.com/api/merchant/bankDetails', newdata)
       .then((res) => {
           console.log(res.data);
           toast.success(`bank details added sucessfully !`);
